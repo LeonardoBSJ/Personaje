@@ -1309,5 +1309,10 @@ public class Imagen extends JFrame {
         pan85.setBackground(brown);
         this.add(pan85);
 
+        Panel fondo = new Panel();
+        fondo.setBounds(0, 0, 500,500);
+        fondo.setBackground(Color.orange);
+        this.add(fondo);
+        
     }
 }

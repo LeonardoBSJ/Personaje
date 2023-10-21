@@ -1313,6 +1313,129 @@ public class Imagen extends JFrame {
         fondo.setBounds(0, 0, 500,500);
         fondo.setBackground(Color.orange);
         this.add(fondo);
-        
+        this.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                int mover = 10;
+                if (e.getKeyCode() == KeyEvent.VK_W) { // Mover hacia arriba
+                    //falseo de salto con movimieto de la base(prototipo)
+                    base.setBounds(0, 460, 500, 50);
+                    pan9.setBounds(320, 240, 10, 20);
+                    pan10.setBounds(320, 230, 10, 10);
+                    pan11.setBounds(340, 240, 10, 10);
+                    pan12.setBounds(330, 250, 10, 20);
+                    pan13.setBounds(330, 260, 20, 10);
+                    pan14.setBounds(330, 270, 10, 10);
+                    pan15.setBounds(320, 270, 10, 10);
+                    pan16.setBounds(320, 260, 10, 10);
+
+                } else if (e.getKeyCode() == KeyEvent.VK_S) { // Mover hacia abajo
+                    //cambia el color del panel declarado
+                    pann2o2.setBackground(brown);
+                    pann2o3.setBackground(brown);
+                    pann3o2.setBackground(brown);
+                    pann3o3.setBackground(brown);
+
+                 
+                } else if (e.getKeyCode() == KeyEvent.VK_C) {
+                    pan3otb.setBackground(ver);
+                    pann4o3.setBackground(ver);
+                    pan56.setBackground(ver);
+                    pan63.setBackground(ver);
+                    pan64.setBackground(ver);
+                    pan10.setBackground(ver);
+                    ot.setBackground(ver);
+                    ot5.setBackground(ver);
+                    pann4o1.setBackground(ver);
+                    pann4o3.setBackground(ver);
+                    ca5.setBackground(ver);
+                    ca7.setBackground(ver);
+                    pan52.setBackground(ver);
+                    pan11.setBackground(ver);
+                    pan14.setBackground(ver);
+                    pan3ott.setBackground(ver);
+
+
+                } else if (e.getKeyCode() == KeyEvent.VK_Q) {
+                    y = +10;
+                    pan3otb.setBounds(180 - mover, 80 + y, 10, 10);
+                    pan3ott.setBounds(180 - mover, 100 + y, 10, 10);
+                    pann4o1.setBounds(300 - mover, 100 + y, 10, 10);
+                    ca5.setBounds(270 - mover, 90 + y, 10, 10);
+                    ca7.setBounds(260 - mover, 70 + y, 10, 10);
+                    pan52.setBounds(200 - mover, 280 + y, 10, 10);
+                    pan11.setBounds(340 - mover, 230 + y, 10, 10);
+                    pan14.setBounds(330 - mover, 260 + y, 10, 10);
+                }
+
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_S) {
+                    //restaurar el color original
+                    pan1.setBackground(Color.BLACK);
+                    pann2o2.setBackground(Color.BLACK);
+                    pann2o3.setBackground(Color.white);
+                    pann3o2.setBackground(Color.BLACK);
+                    pann3o3.setBackground(Color.WHITE);
+                } else if (e.getKeyCode() == KeyEvent.VK_W) {
+                    //regreso a posicion normal
+                    pan9.setBounds(320, 230, 10, 20);
+                    pan10.setBounds(320, 220, 10, 10);
+                    pan16.setBounds(320, 250, 10, 10);
+                    pan11.setBounds(340, 230, 10, 10);
+                    pan12.setBounds(330, 240, 10, 20);
+                    pan13.setBounds(330, 250, 20, 10);
+                    pan14.setBounds(330, 260, 10, 10);
+                    pan15.setBounds(320, 260, 10, 10);
+
+                    //tiempo para regresar al lugar original
+                    for (int i = 0; i < 40; i += 10) {
+                        try {
+                            Thread.sleep(200);
+                            base.setBounds(0, 460 - i, 500, 60);
+                        } catch (InterruptedException ex) {
+                            Logger.getLogger(Imagen.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+
+                    }
+
+                } else if (e.getKeyCode() == KeyEvent.VK_C) {
+                    pan3otb.setBackground(Color.GREEN);
+                    pann4o3.setBackground(Color.GREEN);
+                    pan56.setBackground(Color.GREEN);
+                    pan63.setBackground(Color.GREEN);
+                    pan64.setBackground(Color.GREEN);
+                    pan10.setBackground(Color.GREEN);
+                    ot.setBackground(Color.green);
+                    ot5.setBackground(Color.green);
+                    pann4o1.setBackground(Color.green);
+                    pann4o3.setBackground(Color.GREEN);
+                    ca5.setBackground(Color.green);
+                    ca7.setBackground(Color.green);
+                    pan52.setBackground(Color.green);
+                    pan11.setBackground(Color.green);
+                    pan14.setBackground(Color.green);
+                    pan3ott.setBackground(Color.green);
+
+                } else if (e.getKeyCode() == KeyEvent.VK_Q) {
+                    pan3otb.setBounds(180, 80, 10, 10);
+                    pan3ott.setBounds(180, 100, 10, 10);
+                    pann4o1.setBounds(300, 100, 10, 10);
+                    ca5.setBounds(270, 90, 10, 10);
+                    ca7.setBounds(260, 70, 10, 10);
+                    pan52.setBounds(200, 280, 10, 10);
+                    pan11.setBounds(340, 230, 10, 10);
+                    pan14.setBounds(330, 260, 10, 10);
+                }
+
+            }
+        });
     }
 }
